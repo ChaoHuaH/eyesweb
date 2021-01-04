@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        Welcome to Eyes' Party
+    </title>
+</head>
+<body>
+    <h1>Welcome to Eyes' Party!!!</h1>
+    <hr>
+    {% for post in posts %}
+        <p style='font-size:14pt;font-weight:bold;'>
+            <!-- {{ post.title }} -->
+            <a href='/post/{{post.slug}}'>{{ post.title}}</a>
+        </p>
+        <p style='font-size:10pt;letter-spacing:1pt;'>
+            {{ post.body }}
+            
+        </p>
+    {% endfor %}
+    <hr>
+    <h3>Present Time: {{ now }}</h3>
+</body>
+</html>
