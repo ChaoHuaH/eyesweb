@@ -1,0 +1,1 @@
+web: gunicorn EyesWeb.wsgi --log-file -
