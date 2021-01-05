@@ -1,6 +1,7 @@
 <!-- post.html -->
 <!DOCTYPE html>
 {% extends 'base.html'%}
+{% load markdown_deux_tags %}
 {% block title %} Games - {{post.title}} {% endblock %}
 {% block headmessage %}
     <h3>{{ post.title }}</h3>
@@ -8,6 +9,6 @@
 {% endblock %}
 {% block content %}
     <p style='font-size:12pt;'>
-            {{ post.body }}</a>
+            {{ post.body | markdown}}</a>
     </p>
 {% endblock %}
