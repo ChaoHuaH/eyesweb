@@ -1,0 +1,95 @@
+## Create Python Django environment
+# get all upgarde
+sudo apt-get update
+sudo apt-get -y upgrade
+# install pip
+sudo apt-get install python3-pip
+# vitrual environment
+sudo pip install virtualenv
+# install OpenSSH
+sudo apt-get -y install openssh-sever
+# FTP sever
+sudo apt-get -y install vsftpd
+# git
+sudo apt-get install -y git
+# Create a virtual environment: VENV
+virtualenv VENV
+
+## VENV virtual environment
+source VENV/bin/activate # go into virtual environment
+deactivate # exit
+# create a list of the packages in VENV
+pip freeze > requirement.txt
+# install packages at another environment
+ipip install -r 'requirement.txt'
+
+## git
+git init
+git remote add origin git@github.com:ChaoHuaH/EyesWeb.git
+git add .
+git commit -m "comment"
+git push origin master
+
+## Heroku
+sudo wget  -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+heroku login
+sudo apt-get install libpq-dev python-dev
+pip install dj-database-url dj-static gunicorn psycopg2
+
+# ==============================================================
+## Generate Django web framework
+django-admin startproject EyesWeb
+cd EyesWeb
+python manage.py startapp mainsite
+# start the server
+python manage.py runserver
+
+# ==============================================================
+## Django file usage
+
+### manage.py
+# Manage Website configuration
+# Tool for receiving comment line
+# normally don't modify it 
+# just make sure it runs
+
+### EyesWeb: directory w/ same name as project
+# Collection of the important setting files for the project
+# including setting.py, urls.py, wsgi.py
+
+### urls.py
+# Corresponding function for every URL 
+# modify when creating new web
+
+### setting.py
+# system setting
+
+
+# ==============================================================
+## Steps
+
+# 1. Modify mainsite/models.py to define data models
+python manage.py makemigrations mainsite
+python manage.py migrate
+
+# 2. Create a admin
+python manage.py createsuperuser
+
+# 3. Modify view.py to show some data on homepage
+
+# 4. Create web templates
+mkdir templates
+
+# 5. Add post.html
+
+# 6. Shared template
+
+# 7. Import bootstrap & images
+
+# 8. Markdown
+
+# 9. For heroku uploading
+sudo apt-get install libpq-dev python-dev
+pip install dj-database-url dj-static gunicorn psycopg2
+
+# 10. fix database setting
