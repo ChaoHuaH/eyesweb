@@ -18,10 +18,28 @@ virtualenv VENV
 ## VENV virtual environment
 source VENV/bin/activate # go into virtual environment
 deactivate # exit
+
+## Generate Django web framework
+pip install django # install django in VENV
+django-admin startproject EyesWeb
+cd EyesWeb
+python manage.py startapp mainsite
+# start the server
+python manage.py runserver
+
+
 # create a list of the packages in VENV
-pip freeze > requirement.txt
+pip freeze > requirements.txt
 # install packages at another environment
-ipip install -r 'requirement.txt'
+pip install -r 'requirements.txt'
+
+# hide django secret key in .env
+# settings.py, modify Secret key
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+# create .env
+SECRET_KEY=key
+# create .gitignore
+.env
 
 ## git
 git init
@@ -36,13 +54,7 @@ heroku login
 sudo apt-get install libpq-dev python-dev
 pip install dj-database-url dj-static gunicorn psycopg2
 
-# ==============================================================
-## Generate Django web framework
-django-admin startproject EyesWeb
-cd EyesWeb
-python manage.py startapp mainsite
-# start the server
-python manage.py runserver
+
 
 # ==============================================================
 ## Django file usage
@@ -66,7 +78,7 @@ python manage.py runserver
 
 
 # ==============================================================
-## Steps
+## Entry Steps
 
 # 1. Modify mainsite/models.py to define data models
 python manage.py makemigrations mainsite
@@ -93,3 +105,49 @@ sudo apt-get install libpq-dev python-dev
 pip install dj-database-url dj-static gunicorn psycopg2
 
 # 10. fix database setting
+
+
+
+# ==============================================================
+## Django MVC sturcture
+
+# 1. Model
+# 1.1 define table columns in models.py
+# 1.2 add the model name in setting.py: INSTALL_APP
+# 1.3 run makemigrations and migrate
+python manage.py makemigrations
+python manage.py migrate
+# 1.4 define table management interface in admin.py
+admin.site.register(Product)
+
+# 1_remark Operate table in Python shell
+# start Python shell
+python manage.py shell
+#
+python shell
+
+# create table by shell
+from mainsite.models import Product
+p = Product.objects.create(sku = '0001', name = 'GrayBox', price = 100, size = 'S')
+p.save()
+exit()
+
+# get the content in the table
+from mainsite.models import Product
+allp = Product.objects.all()
+for p in allp:
+    print(p.name, ', ', p.price)
+
+# 2. View
+# 2.1 define function showing web content in views.py
+# 2.2 set the url path in urls.py
+
+# 3. Template
+# 3.1 Set the html sturcture in template/xxx.html
+# 3.2 According to the sturcture of template/xxx.html, edit the def in view.py
+
+
+
+
+
+
