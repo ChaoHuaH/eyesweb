@@ -47,6 +47,9 @@ git remote add origin git@github.com:ChaoHuaH/EyesWeb.git
 git add .
 git commit -m "comment"
 git push origin master
+git remote -v # check the current repository
+git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git # switch to anohter reporsity
+
 
 ## Heroku
 sudo wget  -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
@@ -146,8 +149,19 @@ for p in allp:
 # 3.1 Set the html sturcture in template/xxx.html
 # 3.2 According to the sturcture of template/xxx.html, edit the def in view.py
 
+# ==============================================================
+## Templates
 
+# 1. setting
+# Modify the setting.py
+# BACKEND/ DIRS/ APP_DIRS
 
+# 2. Create directory named templates (both in APP and root)
 
+# 3. Template set up
+# 3.1 create html file
+# 3.2 prepare data in view.py
+# 3.3 render in view.py >>  {{ id }} { %cmd$ } 
+return render(request, 'index.html', {'msg':'Hello'})
 
 
