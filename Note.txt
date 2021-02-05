@@ -24,6 +24,8 @@ pip install django # install django in VENV
 django-admin startproject EyesWeb
 cd EyesWeb
 python manage.py startapp mainsite
+# modify settings.py to let connection works
+ALLOWED_HOSTS=['*',]
 # start the server
 python manage.py runserver
 
@@ -146,15 +148,15 @@ for p in allp:
 # 2.2 set the url path in urls.py
 
 # 3. Template
-# 3.1 Set the html sturcture in template/xxx.html
-# 3.2 According to the sturcture of template/xxx.html, edit the def in view.py
+# 3.1 Set the html sturcture in templates/xxx.html
+# 3.2 According to the sturcture of templates/xxx.html, edit the def in view.py
 
 # ==============================================================
 ## Templates
 
 # 1. setting
 # Modify the setting.py
-# BACKEND/ DIRS/ APP_DIRS
+# 'DIRS': [os.path.join(BASE_DIR, 'templates')]
 
 # 2. Create directory named templates (both in APP and root)
 
